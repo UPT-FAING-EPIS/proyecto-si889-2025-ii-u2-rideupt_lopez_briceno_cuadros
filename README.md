@@ -1,4 +1,4 @@
-# 🚗 Hop Hop - Conecta tu camino universitario
+# 🚗 RideUPT - Conecta tu camino universitario
 
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
