@@ -1,0 +1,59 @@
+# docker-compose.dev.yml
+
+services:
+  # Nuestro servicio de API para desarrollo
+  api-dev:
+    container_name: rideupt-api-dev
+    # Le decimos que construya la imagen usando nuestro Dockerfile de desarrollo
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000" # Mapea el puerto de tu PC al del contenedor
+    environment:
+      - MONGO_URI=mongodb://mongo-dev:27017/rideupt
+      - JWT_SECRET=${JWT_SECRET:-RideUptSuperSecretKeyForDev2025}
+      - PORT=3000
+      - NODE_ENV=development
+    volumes:
+      # --- ¡ESTA ES LA PARTE MÁS IMPORTANTE! ---
+      # Sincroniza la carpeta actual ('.') de tu PC con la carpeta '/usr/src/app'
+      # dentro del contenedor.
+      # Cualquier cambio que hagas en tu código se reflejará instantáneamente.
+      - .:/usr/src/app
+      # También definimos un "volumen anónimo" para node_modules. Esto le dice
+      # a Docker: "Sincroniza todo MENOS la carpeta node_modules".
+      # Así, usamos los módulos instalados DENTRO del contenedor (que son para Linux)
+      # y no los que podríamos tener en Windows, evitando conflictos.
+      - /usr/src/app/node_modules
+    depends_on:
+      mongo-dev:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - rideupt-net-dev
+
+  # Nuestra base de datos para desarrollo
+  mongo-dev:
+    image: mongo:4.4
+    container_name: rideupt-db-dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data-dev:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - rideupt-net-dev
+
+volumes:
+  mongo-data-dev:
+
+networks:
+  rideupt-net-dev:
+    driver: bridge
