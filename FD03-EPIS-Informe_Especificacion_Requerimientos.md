@@ -262,15 +262,13 @@ Los estudiantes universitarios enfrentan dificultades significativas para accede
 | **ID** | **Requerimiento** | **Descripción** | **Prioridad** | **Estado** |
 |--------|-------------------|-----------------|---------------|------------|
 | **RF001** | **Autenticación de Usuarios** | Sistema de registro y login con validación de credenciales estudiantiles | **Alta** | ✅ **IMPLEMENTADO** |
-| **RF002** | **Gestión de Perfiles** | Creación y edición de perfiles de conductor y pasajero | **Alta** | ✅ **IMPLEMENTADO** |
+| **RF002** | **Gestión de Conductor** | Aceptacion y edición de perfiles de conductor | **Alta** | ✅ **IMPLEMENTADO** |
 | **RF003** | **Creación de Viajes** | Conductores pueden crear viajes con geolocalización automática | **Alta** | ✅ **IMPLEMENTADO** |
 | **RF004** | **Búsqueda de Viajes** | Pasajeros pueden buscar viajes disponibles por origen, destino y hora | **Alta** | ✅ **IMPLEMENTADO** |
-| **RF005** | **Sistema de Reservas** | Pasajeros pueden solicitar asientos y conductores pueden aprobar/rechazar | **Alta** | ✅ **IMPLEMENTADO** |
-| **RF006** | **Notificaciones Push** | Sistema de notificaciones en tiempo real para cambios de estado | **Media** | ✅ **IMPLEMENTADO** |
-| **RF007** | **Historial de Viajes** | Acceso a registro de viajes pasados y futuros | **Media** | ✅ **IMPLEMENTADO** |
-| **RF008** | **Cálculo de Precios** | Cálculo automático de precios basado en distancia | **Alta** | ✅ **IMPLEMENTADO** |
-| **RF009** | **Expiración de Viajes** | Viajes expiran automáticamente después de 10 minutos | **Media** | ✅ **IMPLEMENTADO** |
-| **RF010** | **Google Sign-In** | Autenticación rápida y segura a través de cuentas de Google | **Alta** | ✅ **IMPLEMENTADO** |
+| **RF005** | **Notificaciones Push** | Sistema de notificaciones en tiempo real para cambios de estado | **Media** | ✅ **IMPLEMENTADO** |
+| **RF006** | **Historial de Viajes** | Acceso a registro de viajes pasados y futuros | **Media** | ✅ **IMPLEMENTADO** |
+| **RF007** | **Expiración de Viajes** | Viajes expiran automáticamente después de 10 minutos | **Media** | ✅ **IMPLEMENTADO** |
+| **RF008** | **Acceso desde Google Sign-In** | Autenticación rápida y segura a través de cuentas de Google | **Alta** | ✅ **IMPLEMENTADO** |
 
 ### **5.2 Requerimientos No Funcionales**
 
@@ -281,9 +279,6 @@ Los estudiantes universitarios enfrentan dificultades significativas para accede
 | **RNF003** | **Disponibilidad** | 99.5% uptime objetivo | **Alta** | ✅ **IMPLEMENTADO** |
 | **RNF004** | **Seguridad** | Encriptación AES-256 y autenticación JWT | **Alta** | ✅ **IMPLEMENTADO** |
 | **RNF005** | **Escalabilidad** | Arquitectura preparada para crecimiento de usuarios | **Media** | ✅ **IMPLEMENTADO** |
-| **RNF006** | **Compatibilidad** | Soporte para Android 6.0+ e iOS 12.0+ | **Alta** | ✅ **IMPLEMENTADO** |
-| **RNF007** | **Confiabilidad** | Tolerancia a fallos con manejo graceful de errores | **Media** | ✅ **IMPLEMENTADO** |
-| **RNF008** | **Privacidad** | Cumplimiento con Ley de Protección de Datos Personales | **Alta** | ✅ **IMPLEMENTADO** |
 
 ### **5.3 Reglas de Negocio**
 
@@ -306,7 +301,7 @@ Los estudiantes universitarios enfrentan dificultades significativas para accede
 - **Descripción**: Estudiante universitario con vehículo propio que ofrece viajes
 - **Características**:
   - Edad: 20-25 años
-  - Vehículo propio (auto o moto)
+  - Vehículo propio (auto)
   - Disponibilidad matutina y vespertina
   - Motivación económica y social
 - **Necesidades**:
